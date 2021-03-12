@@ -108,7 +108,7 @@
                         <div class="style-selected">
                             <span v-for="(item,index) in tags" :key="index">
                                 {{tags[index]}}
-                                <button type="button" id="btnDelStyle">삭제</button>
+                                <button type="button" @click="btnDelStyle(index)">삭제</button>
                             </span>
                         </div>
                     </div>
@@ -160,6 +160,9 @@ export default {
             this.addImgs = []
             this.tags = []
             this.$emit('close', false);
+        },
+        btnDelStyle(i){
+            this.tags.splice(i,1);
         }
     }
 }
